@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Bookstore - Inventory</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <h1>Rare Bookstore</h1>
+    <div class="mainscreen">
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a class="active" href="inventorymain.html">Inventory</a>
+            <div class="search-container">
+                <form action="inventory.search.html">
+                    <input id= "search" type="text" placeholder="Search..." required>
+                    <button id="search" name="search" value="Search" type="submit">Search</button> 
+                </form>
+            </div>
+        </div>
+        <br><br>
+        <h2>Current Inventory</h2>
+        <div style="overflow-x:auto;">
+            <table class="inventorylist">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Dates Published</th>
+                    <th>Genre</th>
+                    <th>ISBN</th>
+                    <th>Cover</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>The Paino Lesson</td>
+                    <td>August Wilson</td>
+                    <td>Plume Drama</td>
+                    <td>October 1990</td>
+                    <td>Fiction</td>
+                    <td>0452265347</td>
+                    <td>Paperback</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>A Song For You</td>
+                    <td>Robyn Crawford</td>
+                    <td>Dutton</td>
+                    <td>November 2019</td>
+                    <td>Nonfiction</td>
+                    <td>9781524742850</td>
+                    <td>Hardcover</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Nine Bar Blues</td>
+                    <td>Sheree Renee Thomas</td>
+                    <td>Third Man Books</td>
+                    <td>April 2020</td>
+                    <td>Fiction</td>
+                    <td>9780997457896</td>
+                    <td>Paperback</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Homegirls and Handgrenades</td>
+                    <td>Sonia Sanchez</td>
+                    <td>White Pine Press</td>
+                    <td>July 2015</td>
+                    <td>Poetry</td>
+                    <td>9781935210795</td>
+                    <td>Paperback</td>
+                    <td>3</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div id="functions">
+        <form action="addbook.html">
+            <button id="add" name="add" Value="add_a_book" type="submit">Add Book</button>
+        </form> 
+        <form action="updatebook.html">
+            <button id="update" name="update" Value="update_a_book" type="submit">Update Book</button>
+        </form>
+        <form action="deletebook.html">
+            <button id="delete" name="delete" Value="delete_a_book" type="submit">Delete Book</button>
+        </form>
+    </div>
+    <footer>
+       <a href="login.html" ><button id="logout"> LOGOUT </button></a>
+   </footer>
+      
+    </div>
+
+</body>
+</html>
