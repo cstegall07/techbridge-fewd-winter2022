@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Bookstore - Add Book</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <h1>Rare Bookstore</h1>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a class="active" href="inventorymain.html">Inventory</a>
+        <div class="search-container">
+            <form action="inventory.search.html">
+                <input id= "search" type="text" placeholder="Search..." required>
+                <button id="search" name="search" value="Search" type="submit">Search</button> 
+            </form>
+        </div>
+    </div>
+    <form class="add_book_form">
+        <label for="btitle">Tittle</label><br>
+        <input type="text" id="btitle" name="btitle" required><br>
+        <label for="author">Author</label><br>
+        <input type="text" id="author" name="author" required><br>
+        <label for="publisher">Publisher</label><br>
+        <input type="text" id="publisher" name="publisher" required><br>
+        <label for="datep">Date Published</label><br>
+        <input type="text" id="datep" name="datep" required><br>
+        <label for="isbn">ISBN</label><br>
+        <input type="text" id="isbn" name="isbn" required><br>
+        <label for="genre">Genre</label><br>
+        <select id="genre" name="genre" required>
+            <option value="Fiction">Fiction</option>
+            <option value="Non_Fiction">Non-fiction</option>
+            <option value="Narrative">Science Fiction</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Romance">Romance</option>
+            <option value="Poetry">Poetry</option>
+            <option value="Humor">Humor</option>
+            <option value="Drama">Drama</option>
+            <option value="Adventure_fiction">Adventure Fiction</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Historical">Historical</option>
+            <option value="Western">Western</option>
+            <option value="Dystopian">Dystopian</option>
+            <option value="Other">Other</option>
+        </select><br>
+        <button type="submit">Submit</button>
+    </form>
+ <footer>
+    <a href="login.html" ><button id="logout"> LOGOUT </button></a>
+</footer>
+    
+</body>
+</html>
