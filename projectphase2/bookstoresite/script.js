@@ -13,7 +13,7 @@ function searchBooks(){
     // loop through book div, hide those who don't match
     for (i = 0; i < book.length; i++){
         if (book){
-            txtValue = title[i].textContent || title[i].innerText;
+            txtValue = book[i].textContent || book[i].innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1){
                 book[i].style.display="";
             } else{
@@ -35,11 +35,9 @@ function homeSearch(){
     for (i = 0; i < book.length; i++){
 
         if (book){
-            txtValue = title[i].textContent || title[i].innerText;
+            txtValue = book[i].textContent || book[i].innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1){
                 book[i].style.display = "inline";
-            } else if (input = ""){
-                book[i].style.display = "none"
             } else{
                 book[i].style.display = "none";
             }
