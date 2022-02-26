@@ -6,44 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rare Bookstore- Home</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Rare Bookstore</h1>
     <div class="navbar">
         <a class="active" href="home.html">Home</a>
         <a href="inventorymain.html">Inventory</a>
-           <!-- <div class="dropdown">
-                <a href="inventorymain.html" id="dropdownbtn">Inventory</a>
-                    <div class="dropdowncontent">
-                        <a href="addbook.html">Add Book</a>
-                    </div>
-            </div>
-       
-        <div class="dropdown">
-                <button class="dropdwn"><a href="addbook.html">Add Book</a></button>
-                
-            </div>-->
-
     </div>
     <img id="homeimage" src="library-books_1200x800.jpeg">
     <div id="search-home">
-        <form action="inventory.search.html">
-            <input id= "search" type="text" placeholder="Search..." required>
+        <form>
+            <input id= "search" type="text" o placeholder="Search titles..." onkeyup="homeSearch()" required>
             <button id="search" name="search" value="Search" type="submit">Search</button> 
         </form>
     </div> 
+</div>
+<!-- hide all titles  -->
+<div class="container">
+    <div class="book" style="display:none;">
+        <p class ="title">The Paino Lesson</p>
+    </div>
 
+    <div class="book" style="display:none;">
+        <p class ="title">A Song For You</p>
+    </div>
 
-    <!--
-    <form action="addbook.html">
-        <button class="functions" id="add" name="add" Value="add_a_book" type="submit">Add Book</button>
-    </form> 
-    <form action="updatebook.html">
-        <button class="functions" id="update" name="update" Value="update_a_book" type="submit">Update Book</button>
-    </form>
-    <form action="deletebook.html">
-         <button class="functions" id="delete" name="delete" Value="delete_a_book" type="submit">Delete Book</button>
-    </form> -->
+    <div class="book" style="display:none;">
+        <p class ="title" >Nine Bar Blues</p>
+    </div>
+
+    <div class="book" style="display:none;">
+        <p class ="title">Homegirls and Handgrenades</p>
+    </div>
+    
+</div>
 
 <footer>
    <a href="login.html" ><button id="logout"> LOGOUT </button></a>

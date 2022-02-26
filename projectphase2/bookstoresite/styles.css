@@ -129,18 +129,22 @@ h1{
     background: burlywood;
   }
 
+footer{
+  margin-left: 15px;
+  margin-top: 150px;
+}
+
 #logout{
   width: 100px;
   height: 25px;
   margin: auto;
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
   background:cadetblue;
   border-radius: 15px;
   border: none;
   cursor: pointer;
 }
+
+
 #logout:hover{
   background-color: burlywood;
   color: black;
@@ -244,6 +248,40 @@ h1{
 
 .container{
   display: grid;
-  grid-template-rows: repeat(4, 50px);
-  grid-template-columns: repeat(8, 125px);
+  overflow-x: auto;
+  padding: 16px;
+}
+
+.container .tableHead{
+  display: grid;
+  grid-template-columns: repeat(8, 160px);
+  grid-auto-columns: minmax(160px, 1fr);
+  padding: 16px;
+  background-color: cadetblue;
+}
+
+.container .book{
+  display: grid;
+  grid-template-rows: repeat(4, 16px);
+  grid-template-columns: repeat(8, 160px);
+  grid-auto-columns: minmax(160px, 1fr);
+  padding: 16px;
+  border: solid 1px cadetblue;
+}
+
+#sort {
+  padding: 16px;
+}
+
+#sort button {
+  border-radius: 10px;
+  background-color: cadetblue;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#sort button:hover {
+  background-color: burlywood;
+  color: black;
 }
