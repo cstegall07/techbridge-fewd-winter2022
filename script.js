@@ -68,9 +68,7 @@ class Owner extends Manager {
 
 // }
 
-const loginForm = document.getElementById("loginForm");
-const signIn = document.getElementById("signIn");
-const loginErrorMsg = document.getElementById("loginErrorMsg");
+
 
 
 var initialUsers = () => {
@@ -110,6 +108,10 @@ var initialUsers = () => {
 
 console.log(siteUsers);
 
+
+// const loginForm = document.getElementById("loginForm");
+// const signIn = document.getElementById("signIn");
+// const loginErrorMsg = document.getElementById("loginErrorMsg");
 // signIn.addEventListener("click", (e) => {
 //     e.preventDefault();
 //     const userName = loginForm.username.value;
