@@ -87,16 +87,20 @@ catch(err){
 }
 
 function findInList() {
+    // declare and assign the span that contains the numbers
     let span = document.getElementsByTagName('span');
     console.log(span);
 
+    // assign variable tbTextToFind to the element for input
     let tbTextToFind = document.getElementById('tbTextToFind').value;
     console.log(tbTextToFind);
 
+    // assign span inner text and loop through all the spanText 
     for(let i = 0; i < span.length; i++){
         let spanText = span[i].innerText;
         console.log(spanText);
 
+        // if else statements for each condition
         if( spanText == tbTextToFind && tbTextToFind == 1){
             console.log('Found 1 in list!');
             document.getElementById('span1-1').classList.add('spanHighlighted');
@@ -132,7 +136,7 @@ function findInList() {
         if(tbTextToFind == "") throw "empty";
         if(tbTextToFind < 1 ) throw "invalid.";
         if(tbTextToFind == 7) throw "not in list.";
-        if(tbTextToFind > 9) throw "too large for list.";
+        if(tbTextToFind > 9 ) throw "too large for list.";
         //if(tbTextToFind != 'A'  && tbTextToFind == isNaN()) throw "a letter(s) not in list."
 
     }

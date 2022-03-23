@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <script src="script.js"></script>
+    <title>Rare Books</title>
+</head>
+<body>
+    <div class="login">
+        <div class="logo">
+            <img src= "Asset6.svg" alt="rare books text logo">
+        </div>
+
+        <h1>Inventory Portal</h1>
+      
+         <p id="loginErrorMsg">Invalid username and/or password</p>
+
+        <form id="loginForm">
+            <div class="unamePw">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required> 
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="warning">
+                <p class="warning">This website is completely fictional and I advise you not to enter any personal information.To sign in, you must utilize the usernames and passwords provided.</p>
+
+                <p class="warning">By clicking "Sign In", I have read the terms above.</p> 
+            </div>
+
+            <div class="logintools">
+                <button id="signIn" name="signIn" value="Submit SignIn" type="Submit">Sign In</button>
+                <a href="forgotpw.html">Forgot Password<a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
