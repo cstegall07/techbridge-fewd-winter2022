@@ -9,6 +9,12 @@ class User {
     }
 }
 
+// create an array for users and passwords
+var siteUsers = [{username:""}, {password:""}, {employee:""}];
+   
+
+console.log(siteUsers);
+
 class Employee {
     constructor(name, idNum, permission, storeNum){
         this.name = name;
@@ -64,8 +70,55 @@ class Owner extends Manager {
 
 const loginForm = document.getElementById("loginForm");
 const signIn = document.getElementById("signIn");
+const loginErrorMsg = document.getElementById("loginErrorMsg");
+
 
 var initialUsers = () => {
-    let firstEmployee = new Employee("Alexis Nicole", 0321, {add: true, delete: false, update: true, viewReport: false, createUsers: false}, 1)
+    let firstEmployee = new Employee(
+        "Alexis Nicole", 
+        0321, 
+        {add: true, delete: false, update: true, viewReport: false, createUsers: false}, 
+        1
+    );
     console.log(firstEmployee)
-}
+
+    let secondEmployee = new Manager(
+        "James Wilson", 
+        5678, 
+        {add: true, delete: true, update: true, viewReport: false, createUsers: true}, 
+        1, 
+        firstEmployee
+    );
+
+    let thirdEmployee = new Owner(
+        "Mary Lamb", 
+        7890, 
+        {add: true, delete: true, update: true, viewReport: true, createUsers: true}, 
+        0, 
+        firstEmployee, secondEmployee
+    );
+
+    var addSiteUsers = (username, password, employee) => {
+       
+       let anyUser = new User(username, password, employee);
+       siteUsers.push(anyUser)
+       return 
+    }
+
+    addSiteUsers("anicole", "firstuser", firstEmployee)
+};
+
+console.log(siteUsers);
+
+// signIn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     const userName = loginForm.username.value;
+//     const passWord = loginForm.password.value;
+
+//     let users = siteUsers();
+//     if (userName === users[i].userId && passWord === users[i].pw) {
+//         window.location.href = "home.html"
+//     } else {
+//         loginErrorMsg.classList.remove();
+//     }
+// })

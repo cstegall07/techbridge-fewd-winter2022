@@ -106,6 +106,10 @@ body{
     color: cadetblue;
 }
 
+.hide{
+    display: none;
+}
+
 /* create media query for mobile. try to show only div */
 
 
