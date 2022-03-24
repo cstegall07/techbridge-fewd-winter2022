@@ -6,25 +6,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rare Bookstore - Inventory</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="script.js" defer></script>
+    <script src="booklist.js" defer></script>
 </head>
 <body>
-    <h1>Rare Bookstore</h1>
+    <div class="heading">
+        <img src="./resources/Asset6.svg" alt="rare bookstore type logo">
+        <div class="logout">
+            <a href="index.html" ><button id="logout"> LOGOUT </button></a>
+        </div> 
+    </div>
     <div class="mainscreen">
         <div class="navbar">
             <a href="home.html">Home</a>
             <a class="active" href="inventorymain.html">Inventory</a>
             <div class="search-container">
                 <form action="inventory.search.html">
-                    <input id= "search" type="text" placeholder="Search..." required>
+                    <input id="search" type="text" onkeyup="searchBooks()" placeholder="Search..." required>
                     <button id="search" name="search" value="Search" type="submit">Search</button> 
                 </form>
             </div>
         </div>
-        <br><br>
+        
+        <div id="functions">
+            <button id="add">Add Book</button>
+
+        </div>
+
+        <button id="update" onclick="" style="display:none;">Update</button>
+
+        <div id="modalAddBook" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add Book</h2>
+                <p>Fill out the form below to add a book to the inventory list</p>
+                <form class="book-form">
+                    <label for="btitle">Title</label><br>
+                    <input type="text" id="btitle" name="btitle" required><br>
+                    <label for="author">Author</label><br>
+                    <input type="text" id="author" name="author" required><br>
+                    <label for="publisher">Publisher</label><br>
+                    <input type="text" id="publisher" name="publisher" required><br>
+                    <label for="datep">Date Published</label><br>
+                    <input type="text" id="datep" name="datep" required><br>
+                    <label for="isbn">ISBN</label><br>
+                    <input type="text" id="isbn" name="isbn" required><br>
+                
+                    <label for="bcover">Cover</label><br>
+                    <input type="text" id="bcover" name="bcover" required><br>
+
+                    <label for="bquantity">Quantity</label><br>
+                    <input type="text" id="bquantity" name="bquantity" required><br>
+
+                    <label for="genre">Genre</label><br>
+                    <select id="genre" name="genre" required>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non_Fiction">Non-fiction</option>
+                        <option value="Narrative">Science Fiction</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Poetry">Poetry</option>
+                        <option value="Humor">Humor</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Adventure_fiction">Adventure Fiction</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Historical">Historical</option>
+                        <option value="Western">Western</option>
+                        <option value="Dystopian">Dystopian</option>
+                        <option value="Other">Other</option>
+                    </select><br>
+                    <button type="button" id="addbooklist">Add Book</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="modalUpdateBook" class="modal" style="width:auto; display:none;">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Update Book</h2>
+                <p>Fill out the form below to update book</p>
+            </div>
+            <div class="modal-content">
+                <form class="book-form">
+                    <label for="btitle">Title</label><br>
+                    <input type="text" id="btitle" name="btitle" required><br>
+                    <label for="author">Author</label><br>
+                    <input type="text" id="author" name="author" required><br>
+                    <label for="publisher">Publisher</label><br>
+                    <input type="text" id="publisher" name="publisher" required><br>
+                    <label for="datep">Date Published</label><br>
+                    <input type="text" id="datep" name="datep" required><br>
+                    <label for="isbn">ISBN</label><br>
+                    <input type="text" id="isbn" name="isbn" required><br>
+                    <label for="genre">Genre</label><br>
+                    <select id="genre" name="genre" required>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non_Fiction">Non-fiction</option>
+                        <option value="Narrative">Science Fiction</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Poetry">Poetry</option>
+                        <option value="Humor">Humor</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Adventure_fiction">Adventure Fiction</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Historical">Historical</option>
+                        <option value="Western">Western</option>
+                        <option value="Dystopian">Dystopian</option>
+                        <option value="Other">Other</option>
+                    </select><br>
+                    <button type="button" id="updatebooklist">Submit</button>
+                </form>
+            </div>
+        </div>
+
         <h2>Current Inventory</h2>
-        <div style="overflow-x:auto;">
-            <table class="inventorylist">
-                <tr>
+        <div id="inventoryList">
+            <table id="inventoryListTable" class="inventorylistTable">
+                <tr class="book">
                     <th>Title</th>
                     <th>Author</th>
                     <th>Publisher</th>
@@ -33,66 +134,51 @@
                     <th>ISBN</th>
                     <th>Cover</th>
                     <th>Quantity</th>
+                </tr class="book">
+                <tr>
+                    <td class="title">The Paino Lesson</td>
+                    <td class="author">August Wilson</td>
+                    <td class ="publisher">Plume Drama</td>
+                    <td class ="dates">October 1990</td>
+                    <td class ="genre">Fiction</td>
+                    <td class ="isbn">0452265347</td>
+                    <td class ="cover">Paperback</td>
+                    <td class ="quantity">1</td>
+                </tr>
+                <tr class="book">
+                    <td class="title">A Song For You</td>
+                    <td class="author">Robyn Crawford</td>
+                    <td class ="publisher">Dutton</td>
+                    <td class ="dates">November 2019</td>
+                    <td class ="genre">Nonfiction</td>
+                    <td class ="isbn">9781524742850</td>
+                    <td class ="cover">Hardcover</td>
+                    <td class ="quantity">2</td>
+                </tr>
+                <tr class="book">
+                    <td class="title">Nine Bar Blues</td>
+                    <td class="author">Sheree Renee Thomas</td>
+                    <td class ="publisher">Third Man Books</td>
+                    <td class ="dates">April 2020</td>
+                    <td class ="genre">Fiction</td>
+                    <td class ="isbn">9780997457896</td>
+                    <td class ="cover">Paperback</td>
+                    <td class ="quantity">1</td>
                 </tr>
                 <tr>
-                    <td>The Paino Lesson</td>
-                    <td>August Wilson</td>
-                    <td>Plume Drama</td>
-                    <td>October 1990</td>
-                    <td>Fiction</td>
-                    <td>0452265347</td>
-                    <td>Paperback</td>
-                    <td>1</td>
+                    <td class="title">Homegirls and Handgrenades</td>
+                    <td class="author">Sonia Sanchez</td>
+                    <td class ="publisher">White Pine Press</td>
+                    <td class ="dates">July 2015</td>
+                    <td class ="genre">Poetry</td>
+                    <td class ="isbn">9781935210795</td>
+                    <td class ="cover">Paperback</td>
+                    <td class ="quantity">3</td>
                 </tr>
-                <tr>
-                    <td>A Song For You</td>
-                    <td>Robyn Crawford</td>
-                    <td>Dutton</td>
-                    <td>November 2019</td>
-                    <td>Nonfiction</td>
-                    <td>9781524742850</td>
-                    <td>Hardcover</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>Nine Bar Blues</td>
-                    <td>Sheree Renee Thomas</td>
-                    <td>Third Man Books</td>
-                    <td>April 2020</td>
-                    <td>Fiction</td>
-                    <td>9780997457896</td>
-                    <td>Paperback</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Homegirls and Handgrenades</td>
-                    <td>Sonia Sanchez</td>
-                    <td>White Pine Press</td>
-                    <td>July 2015</td>
-                    <td>Poetry</td>
-                    <td>9781935210795</td>
-                    <td>Paperback</td>
-                    <td>3</td>
-                </tr>
-            </table>
+            </table>     
         </div>
-    </form>
-    <div id="functions">
-        <form action="addbook.html">
-            <button id="add" name="add" Value="add_a_book" type="submit">Add Book</button>
-        </form> 
-        <form action="updatebook.html">
-            <button id="update" name="update" Value="update_a_book" type="submit">Update Book</button>
-        </form>
-        <form action="deletebook.html">
-            <button id="delete" name="delete" Value="delete_a_book" type="submit">Delete Book</button>
-        </form>
-    </div>
-    <footer>
-       <a href="login.html" ><button id="logout"> LOGOUT </button></a>
-   </footer>
-      
-    </div>
 
 </body>
 </html>
+
+

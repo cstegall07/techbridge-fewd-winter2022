@@ -1,126 +1,82 @@
-// employee and managers should be able to login with username and passwords
-var permissionSet = {add: true, delete: true, update: true, viewReport: true, createUsers: true};
+// search through all books 
+function searchBooks(){
+    // declare variables
+    var input, filter, title, book, txtValue
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    title = document.getElementsByClassName("title");
+    book = document.getElementsByClassName("book");
+    console.log(book);
+    console.log(title);
+    console.log(filter);
 
-class User {
-    constructor(username, password, employee){
-        this.username = username;
-        this.password = password;
-        this.employee = employee;
+    // loop through book div, hide those who don't match
+    for (i = 0; i < book.length; i++){
+        if (book){
+            txtValue = book[i].textContent || book[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1){
+                book[i].style.display="";
+            } else{
+                book[i].style.display = "none";
+            }
+        }
     }
 }
 
-// create an array for users and passwords
-var siteUsers = [{username:""}, {password:""}, {employee:""}];
-   
+function homeSearch(){
+    // declare variables
+    var input, filter, title, book, txtValue
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    title = document.getElementsByClassName("title");
+    book = document.getElementsByClassName("book");
 
-console.log(siteUsers);
+    // loop through book div, hide those who don't match
+    for (i = 0; i < book.length; i++){
 
-class Employee {
-    constructor(name, idNum, permission, storeNum){
-        this.name = name;
-        this.idNum = idNum;
-        this.permission = permission;
-        this.storeNum = storeNum;
-        this.employeeType = "Employee";
-
-        console.log("employee constructor name: ", name);
-        console.log("employee constructor idNum: ", idNum);
-        console.log("employee constructor permission: ", permissions);
-        console.log("employee constructor storeNum: ", storeNum)
+        if (book){
+            txtValue = book[i].textContent || book[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1){
+                book[i].style.display = "inline";
+            } else{
+                book[i].style.display = "none";
+            }
+        }
     }
 }
 
-class Manager extends Employee {
-    constructor(name, idNum, permission, storeNum, employees) {
-        super(name, idNum, permission, storeNum);
-        this.employees = employees;
-        this.employeeType = "Manager";
-    }
+// sort books in alphabetical order
+function sortBooks(){
+    var title, book, switching, shouldSwitch;
+    book = document.getElementsByClassName("book");
+    switching = true;
+    // loop through titles until switching is done
+    while (switching){
+        switching = false;
+        title = document.getElementsByClassName("title");
+        for (i = 0; i < (title.length -1); i++){
+            shouldSwitch = false;
 
-    changeEmployeePerm(employee, updatedPermissionSet){
-        let foundEmployee = false;
-        for(let i = 0; i < this.employees.length; i++){
-            if(employee.idNum === this.employees[i].idNum){
-                employee.permissions = updatedPermissionSet;
-                foundEmployee = true;
+            if (title[i].innerHTML.toLowerCase()> title[i+1].innerHTML.toLowerCase()){
+                shouldSwitch = true;
                 break;
             }
         }
-        return employee;
+        // switch the div containing the book info 
+        if (shouldSwitch){
+            book[i].parentNode.insertBefore(book[i+1], book[i]);
+            switching = true;
+        }
     }
 }
 
-class Owner extends Manager {
-    constructor(name, idNum, permission, storeNum, employees,) {
-        super(name, idNum, permission, storeNum, employees);
-        this.employeeType = "Owner";
-    }
+//reset to before switch
+function resetSort() {
+    window.location.reload();
+    return false;
 }
 
-// var getSiteUsers = () => {
-
-// }
-
-// var login = (user, pw) => {
-//     setLoggedInUser(null);
-//     let loggedIn = false;
-//     let users = getSiteUsers();
-
-// }
 
 
 
 
-var initialUsers = () => {
-    let firstEmployee = new Employee(
-        "Alexis Nicole", 
-        0321, 
-        {add: true, delete: false, update: true, viewReport: false, createUsers: false}, 
-        1
-    );
-    console.log(firstEmployee)
-
-    let secondEmployee = new Manager(
-        "James Wilson", 
-        5678, 
-        {add: true, delete: true, update: true, viewReport: false, createUsers: true}, 
-        1, 
-        firstEmployee
-    );
-
-    let thirdEmployee = new Owner(
-        "Mary Lamb", 
-        7890, 
-        {add: true, delete: true, update: true, viewReport: true, createUsers: true}, 
-        0, 
-        firstEmployee, secondEmployee
-    );
-
-    var addSiteUsers = (username, password, employee) => {
-       
-       let anyUser = new User(username, password, employee);
-       siteUsers.push(anyUser)
-       return 
-    }
-
-    addSiteUsers("anicole", "firstuser", firstEmployee)
-};
-
-console.log(siteUsers);
-
-
-// const loginForm = document.getElementById("loginForm");
-// const signIn = document.getElementById("signIn");
-// const loginErrorMsg = document.getElementById("loginErrorMsg");
-// signIn.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     const userName = loginForm.username.value;
-//     const passWord = loginForm.password.value;
-
-//     let users = siteUsers();
-//     if (userName === users[i].userId && passWord === users[i].pw) {
-//         window.location.href = "home.html"
-//     } else {
-//         loginErrorMsg.classList.remove();
-//     }
-// })
