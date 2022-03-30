@@ -126,9 +126,9 @@
         <div id="inventoryList">
             <table id="inventoryListTable" class="inventorylistTable">
                 <tr class="book">
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Publisher</th>
+                    <th onclick="sortBooks(0)">Title</th>
+                    <th onclick="sortBooks(1)">Author</th>
+                    <th onclick="sortBooks(2)">Publisher</th>
                     <th>Dates Published</th>
                     <th>Genre</th>
                     <th>ISBN</th>
@@ -144,6 +144,8 @@
                     <td class ="isbn">0452265347</td>
                     <td class ="cover">Paperback</td>
                     <td class ="quantity">1</td>
+                    <td><button class="update">Update</button></td>
+                    
                 </tr>
                 <tr class="book">
                     <td class="title">A Song For You</td>
@@ -154,6 +156,7 @@
                     <td class ="isbn">9781524742850</td>
                     <td class ="cover">Hardcover</td>
                     <td class ="quantity">2</td>
+                    <td><button class="update">Update</button></td>
                 </tr>
                 <tr class="book">
                     <td class="title">Nine Bar Blues</td>
@@ -164,6 +167,7 @@
                     <td class ="isbn">9780997457896</td>
                     <td class ="cover">Paperback</td>
                     <td class ="quantity">1</td>
+                    <td><button class="update">Update</button></td>
                 </tr>
                 <tr>
                     <td class="title">Homegirls and Handgrenades</td>
@@ -174,6 +178,7 @@
                     <td class ="isbn">9781935210795</td>
                     <td class ="cover">Paperback</td>
                     <td class ="quantity">3</td>
+                    <td><button class="update">Update</button></td>
                 </tr>
             </table>     
         </div>

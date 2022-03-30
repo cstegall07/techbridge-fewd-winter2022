@@ -46,26 +46,45 @@ function homeSearch(){
 }
 
 // sort books in alphabetical order
-function sortBooks(){
-    var title, book, switching, shouldSwitch;
+function sortBooks(n){
+    var row, book,x,y, switching, dir, shouldSwitch, switchCount = 0;;
     book = document.getElementsByClassName("book");
     switching = true;
+
+    dir = "asc"
     // loop through titles until switching is done
     while (switching){
         switching = false;
-        title = document.getElementsByClassName("title");
-        for (i = 0; i < (title.length -1); i++){
+        row = document.getElementsByTagName("TR");
+        for (i = 1; i < (row.length -1); i++){
             shouldSwitch = false;
 
-            if (title[i].innerHTML.toLowerCase()> title[i+1].innerHTML.toLowerCase()){
-                shouldSwitch = true;
-                break;
+            x = row[i].getElementsByTagName("TD")[n];
+            y = row[i + 1].getElementsByTagName("TD")[n];
+
+            if (dir == "asc"){
+
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()){
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc"){
+                if(x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()){
+                    shouldSwitch = true;
+                    break;
+                }
             }
         }
         // switch the div containing the book info 
         if (shouldSwitch){
-            book[i].parentNode.insertBefore(book[i+1], book[i]);
+            row[i].parentNode.insertBefore(row[i+1], row[i]);
             switching = true;
+            switchCount++;
+        } else{
+            if(switchCount == 0 && dir == "asc") {
+                dirr = "desc";
+                switching = true;
+            }
         }
     }
 }

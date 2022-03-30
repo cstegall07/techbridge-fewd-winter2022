@@ -11,12 +11,19 @@ class User {
 
 // create an array for users and passwords
 
-var siteUsers =  {
-    username:"", password:"", employee:""
-};
+var siteUsersArr =  [{
+    username:"admin", 
+    password:"admin", 
+    employee:"admin"
+},
+{
+    username: "admin2",
+    password: "admin2",
+    employee: "admin2"
+} ];
 
-const siteUsersArr = [siteUsers];
-console.log(siteUsers);
+// const siteUsersArr = [siteUsers];
+console.log(siteUsersArr);
 
 class Employee {
     constructor(name, idNum, permission, storeNum){
@@ -87,8 +94,8 @@ class Owner extends Manager {
 var addSiteUsers = (username, password, employee) => {
        
     let anyUser = new User(username, password, employee);
-
-    return siteUsersArr.push(anyUser) 
+    siteUsersArr.push(anyUser) 
+    return 
  };
 
 addSiteUsers("anicole", "firstuser", firstEmployee)
@@ -98,32 +105,52 @@ console.log("siteUsersArr[2].password: ", siteUsersArr[2].password)
 
 var signInBtn = document.getElementById("signIn")
 
-window.onload = function() {
+
     
-    function rblogin () {
-        let userName = document.getElementById("username").value;
-        let passWord = document.getElementById("password").value;
-        let loginErrorMsg = document.getElementById("loginErrorMsg")
+    // function rblogin () {
+    //     let userName = document.getElementById("username").value;
+    //     let passWord = document.getElementById("password").value;
+    //     let loginErrorMsg = document.getElementById("loginErrorMsg")
+    //     let users = siteUsersArr;
+    
+    //     signInBtn.addEventListener("submit", e =>{
+    //         e.preventDefault();
+    //         for (i = 0; i < siteUsersArr.length; i++) {
+    //             if (userName == users[i].username && passWord == users[i].password) {
+    //             console.log(userName + " is logged in!");
+    //             return
+    //             // window.location.href = "home.html";
+    //             } else {
+    //             loginErrorMsg.classList.remove("hide");
+    //             return
+    //             } 
+    //         }
+    //     })
         
 
-        console.log(userName);
-        console.log(passWord);
         
         
+    // };
+
+    signInBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const userName = document.getElementById("username").value;
+        const passWord = document.getElementById("password").value;
         let users = siteUsersArr;
-        
-        for (i = 0; i < siteUsersArr.length; i++) {
+        for (i = 1; i < siteUsersArr.length; i++) {
             if (userName == users[i].username && passWord == users[i].password) {
-            window.location.href = "home.html";
+                alert("You have successfully logged in.");
+                window.location.href = "home.html";
+                return
             } else {
-            loginErrorMsg.classList.remove("hide");
-            } 
-             
+                loginErrorMsg.classList.remove("hide");
+            }
         }
-        return false 
-    }
-    signInBtn.onclick = rblogin()
-};
+    })
+    
+
+
+
 
 
 

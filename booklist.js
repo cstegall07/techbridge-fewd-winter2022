@@ -11,6 +11,11 @@ addBookBtn.onclick = function(){
     var isbn = row.insertCell(5);
     var cover = row.insertCell(6);
     var quantity = row.insertCell(7);
+    var update = row.insertCell(8);
+
+    var updateButton=`<td>
+    <button class="update"> Update </button>
+    </td>`;
 
     title.innerHTML = document.getElementById("btitle").value
     author.innerHTML = document.getElementById("author").value
@@ -20,6 +25,7 @@ addBookBtn.onclick = function(){
     isbn.innerHTML = document.getElementById("isbn").value
     cover.innerHTML = document.getElementById("bcover").value
     quantity.innerHTML = document.getElementById("bquantity").value
+    update.innerHTML += updateButton
 
     row.classList.add("book")
     title.classList.add("title")
@@ -29,6 +35,10 @@ addBookBtn.onclick = function(){
     genre.classList.add("genre")
     cover.classList.add("cover")
     quantity.classList.add("quantity")
+    
+  
+
+
 
     return false; 
 
@@ -51,6 +61,7 @@ btn.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+ 
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -68,4 +79,13 @@ window.onclick = function(event) {
 <th>ISBN</th>
 <th>Cover</th>
 <th>Quantity</th> */
+
+//  update book
+// var updatemodal = document.getElementById("modalUpdateBook");
+
+// var updatebtn = document.getElementsByClassName("update");
+
+// updatebtn.onclick = function() {
+//   updatemodal.style.display = "block";
+// }
 

@@ -214,6 +214,7 @@ h1{
 
 .inventorylistTable th{
   background-color: cadetblue;
+  cursor: pointer;
 }
 
 .inventorylistTable tr:hover{
@@ -318,6 +319,7 @@ h1{
   grid-auto-columns: minmax(160px, 1fr);
   padding: 16px;
   background-color: cadetblue;
+  cursor: pointer;
 }
 
 .container .book{
@@ -327,4 +329,18 @@ h1{
   grid-auto-columns: minmax(160px, 1fr);
   padding: 16px;
   border: solid 1px cadetblue;
+}
+
+.update {
+  position: relative;
+  border-radius: 10px;
+  background-color: cadetblue;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.update:hover {
+  background-color: rgb(226, 126, 11);
+  color: black;
 }
