@@ -14,7 +14,7 @@ addBookBtn.onclick = function(){
     var update = row.insertCell(8);
 
     var updateButton=`<td>
-    <button class="update"> Update </button>
+    <button class="update" onclick="openUpdateModal()"> Update </button>
     </td>`;
 
     title.innerHTML = document.getElementById("btitle").value
@@ -69,7 +69,7 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
 /* <th>Title</th>
 <th>Author</th>
@@ -81,11 +81,125 @@ window.onclick = function(event) {
 <th>Quantity</th> */
 
 //  update book
-// var updatemodal = document.getElementById("modalUpdateBook");
 
-// var updatebtn = document.getElementsByClassName("update");
 
-// updatebtn.onclick = function() {
-//   updatemodal.style.display = "block";
-// }
+var updateModal = document.getElementById("modalUpdateBook");
 
+var updateBtn = document.getElementsByClassName("update")
+
+console.log(updateBtn)
+
+openUpdateModal = () => {
+  updateModal.style.display = "block";
+  console.log("I clicked the update button");
+
+  var table = document.getElementById("inventoryListTable");
+
+  var tRow = table.rows;
+  console.log(tRow);
+
+  var btnRow = updateBtn.parentElement.parentElement
+  
+
+  // for (var i = 1; i < tRow.length; i++){
+  //   var tCells = tRow[i].cells;
+
+  //   if(updateBtn.parentElement.parentElement[i] == tRow[i]) {
+
+  //     var uTitle = document.getElementById("butitle");
+  //     var uAuthor = document.getElementById("buauthor");
+  //     var uPublisher = document.getElementById("bupublisher" );
+  //     var uDate = document.getElementById("budatep");
+  //     var uIsbn = document.getElementById("buisbn");
+  //     var uGenre = document.getElementById("bugenre");
+  //     var uCover = document.getElementById("bucover");
+  //     var uQuantity = document.getElementById("buquantity");
+
+  //     uTitle.value = tCells[0].innerHTML;
+  //     uAuthor.value = tCells[1].innerHTML;
+  //     uPublisher.value = tCells[2].innerHTML;
+  //     uDate.value = tCells[3].innerHTML;
+  //     uGenre.value = tCells[4].innerHTML;
+  //     uIsbn.value = tCells[5].innerHTML;
+  //     uCover.value = tCells[6].innerHTML;
+  //     uQuantity.value = tCells[7].innerHTML;
+  //   }
+    
+    
+  // };
+ 
+
+
+  // for (var i=1; i < rows.length; i++) {
+  //   if (rows[i]) {
+      
+  //   var cells = rows.cells; //cells collection
+  //   var uTitle = document.getElementById("butitle");
+  //   var uAuthor = document.getElementById("buauthor");
+  //   var uPublisher = document.getElementById("bupublisher" );
+  //   var uDate = document.getElementById("budatep");
+  //   var uIsbn = document.getElementById("buisbn");
+  //   var uGenre = document.getElementById("bugenre");
+
+  //   uTitle.value = cells[0].innerHTML;
+  //   uAuthor.value = cells[1].innerHTML;
+  //   uPublisher.value = cells[2].innerHTML;
+  //   uDate.value = cells[3].innerHTML;
+  //   uIsbn.value = cells[4].innerHTML;
+  //   uGenre.value = cells[5].innerHTML;
+  // }  
+}
+
+var span = document.getElementsByClassName("close")[1];
+
+
+
+span.onclick = function() {
+  updateModal.style.display = "none";
+ 
+};
+
+
+window.onclick = function(e) {
+  if (e.target == updateModal) {
+    updateModal.style.display = "none";
+  }
+};
+
+
+// var updateBookBtn = document.getElementById("updatebooklist")
+// updateBookBtn.onclick = function(){
+//   updateModal.style.display = "none";
+//     var table = document.getElementById("inventoryListTable");
+//     var row = table.getElementsByTagName("tr");
+//     console.log(row);
+
+//     var cells = document.querySelectorAll("cell")
+//     console.log(cells)
+
+   
+
+// //  for (i=1; i < row.length; i++){
+// //       document.getElementById("butitle").value = this.cell[0].innerHTML
+// //     }
+
+//     // var title = document.querySelectorAll("td.title");
+//     // console.log(title);
+//     // var author = document.querySelectorAll("td.author");
+//     // var publisher = document.querySelectorAll("td.publisher");
+//     // var dates = document.querySelectorAll("td.dates");
+//     // var genre = document.querySelectorAll("td.genre");
+//     // var isbn = document.querySelectorAll("td.isbn");
+//     // var cover = document.querySelectorAll("td.cover");
+//     // var quantity = document.querySelectorAll("td.quantity");
+
+   
+    
+//     // title.innerHTML = document.getElementById("btitle").value
+//     // author.innerHTML = document.getElementById("author").value
+//     // publisher.innerHTML = document.getElementById("publisher").value
+//     // dates.innerHTML = document.getElementById("datep").value
+//     // genre.innerHTML = document.getElementById("genre").value
+//     // isbn.innerHTML = document.getElementById("isbn").value
+//     // cover.innerHTML = document.getElementById("bcover").value
+//     // quantity.innerHTML = document.getElementById("bquantity").value

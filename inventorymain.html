@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rare Bookstore - Inventory</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <script src="script.js" defer></script>
-    <script src="booklist.js" defer></script>
+    
 </head>
 <body>
     <div class="heading">
@@ -30,10 +29,7 @@
         
         <div id="functions">
             <button id="add">Add Book</button>
-
         </div>
-
-        <button id="update" onclick="" style="display:none;">Update</button>
 
         <div id="modalAddBook" class="modal">
             <div class="modal-content">
@@ -81,26 +77,35 @@
             </div>
         </div>
 
-        <div id="modalUpdateBook" class="modal" style="width:auto; display:none;">
-            <div class="modal-header">
+        <div id="modalUpdateBook" class="modal">
+            <div class="modal-content">  
                 <span class="close">&times;</span>
                 <h2>Update Book</h2>
                 <p>Fill out the form below to update book</p>
-            </div>
-            <div class="modal-content">
                 <form class="book-form">
-                    <label for="btitle">Title</label><br>
-                    <input type="text" id="btitle" name="btitle" required><br>
-                    <label for="author">Author</label><br>
-                    <input type="text" id="author" name="author" required><br>
-                    <label for="publisher">Publisher</label><br>
-                    <input type="text" id="publisher" name="publisher" required><br>
-                    <label for="datep">Date Published</label><br>
-                    <input type="text" id="datep" name="datep" required><br>
-                    <label for="isbn">ISBN</label><br>
-                    <input type="text" id="isbn" name="isbn" required><br>
-                    <label for="genre">Genre</label><br>
-                    <select id="genre" name="genre" required>
+                    <label for="butitle">Title</label><br>
+                    <input type="text" id="butitle" name="btitle" required><br>
+
+                    <label for="buauthor">Author</label><br>
+                    <input type="text" id="buauthor" name="author" required><br>
+
+                    <label for="bupublisher">Publisher</label><br>
+                    <input type="text" id="bupublisher" name="publisher" required><br>
+
+                    <label for="budatep">Date Published</label><br>
+                    <input type="text" id="budatep" name="datep" required><br>
+
+                    <label for="buisbn">ISBN</label><br>
+                    <input type="text" id="buisbn" name="isbn" required><br>
+
+                    <label for="bucover">Cover</label><br>
+                    <input type="text" id="bucover" name="bcover" required><br>
+
+                    <label for="buquantity">Quantity</label><br>
+                    <input type="text" id="buquantity" name="bquantity" required><br>
+
+                    <label for="bugenre">Genre</label><br>
+                    <select id="bugenre" name="genre" required>
                         <option value="Fiction">Fiction</option>
                         <option value="Non_Fiction">Non-fiction</option>
                         <option value="Narrative">Science Fiction</option>
@@ -117,7 +122,7 @@
                         <option value="Dystopian">Dystopian</option>
                         <option value="Other">Other</option>
                     </select><br>
-                    <button type="button" id="updatebooklist">Submit</button>
+                    <button type="button" id="updatebooklist">Update Book</button>
                 </form>
             </div>
         </div>
@@ -144,7 +149,7 @@
                     <td class ="isbn">0452265347</td>
                     <td class ="cover">Paperback</td>
                     <td class ="quantity">1</td>
-                    <td><button class="update">Update</button></td>
+                  <td><button class="update" onclick="openUpdateModal()">Update</button></td>
                     
                 </tr>
                 <tr class="book">
@@ -156,7 +161,7 @@
                     <td class ="isbn">9781524742850</td>
                     <td class ="cover">Hardcover</td>
                     <td class ="quantity">2</td>
-                    <td><button class="update">Update</button></td>
+                    <td><button class="update" onclick="openUpdateModal()">Update</button></td>
                 </tr>
                 <tr class="book">
                     <td class="title">Nine Bar Blues</td>
@@ -167,7 +172,7 @@
                     <td class ="isbn">9780997457896</td>
                     <td class ="cover">Paperback</td>
                     <td class ="quantity">1</td>
-                    <td><button class="update">Update</button></td>
+                    <td><button class="update" onclick="openUpdateModal()">Update</button></td>
                 </tr>
                 <tr>
                     <td class="title">Homegirls and Handgrenades</td>
@@ -178,11 +183,12 @@
                     <td class ="isbn">9781935210795</td>
                     <td class ="cover">Paperback</td>
                     <td class ="quantity">3</td>
-                    <td><button class="update">Update</button></td>
+                    <td><button class="update" onclick="openUpdateModal()">Update</button></td>
                 </tr>
             </table>     
         </div>
-
+    <script src="script.js"></script>
+    <script src="booklist.js"></script>
 </body>
 </html>
 
