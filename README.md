@@ -2,21 +2,19 @@
 
 Employees at a rare bookstore need to be able to access a system where 
 they can store the inventory for the store. The system should be 
-accessible from either a laptop or a tablet. Employees should be able to 
-add, update, and delete books from the system. Not all employees should 
-be able to delete books from the system.
+accessible from either a laptop or a tablet.
 
-The Rare Bookstore client’s have indicated that they will require the 
-ability to view a list of their books. The ability to search through the 
-list to find books based on their price, Author’s name, and Book’s title 
-has been requested. They would also like to sort the list based on the 
-book details that they provided during the interviews in Phase 1. Your 
-team has devised a set of tests to validate the ability to search through 
-visual lists and grids to find a value. They also have devised a test to 
-validate sorting a visual
+## Table of Contents
+- [Design Thinking](#design-thinking-process)
 
-### **Stage 1: Empathise**
+
+<details> <summary> Phase 1 </summary>
+ 
+## Design Thinking Process 
+ 
+### Stage 1: Empathise
 Based on what was discussed in the interview I have created profiles for each employee:
+ 
 **Owner**
 
 1. Responsibilities: Oversee inventory at multiple locations, review inventory reports, and the ability to do complete his employee responsibilities
@@ -38,7 +36,7 @@ Based on what was discussed in the interview I have created profiles for each em
 3. Task timeline: Daily
 4. Changing the system would mean faster processing times leading to staff happiness
 
-### Stage 2: Define
+## Stage 2: Define
 
 1. Create an inventory system that allows the owner to track inventory at multiple locations
 2. Adapt a login interface that allows all users(owner, manager, and staff) to utilize the site with unique usernames and passwords. 
@@ -50,7 +48,7 @@ Based on what was discussed in the interview I have created profiles for each em
 8. Create a system that allows managers to create and delete  usernames for staff 
 9. Create a specific page with only access granted to managers to see how staff uses the website
 
-### **Stage 3: Ideate**
+## Stage 3: Ideate
  For further details refer to Phase.1.docx in the Project Phase 1 folder
 
 1. Intial Login Page
@@ -60,5 +58,139 @@ Based on what was discussed in the interview I have created profiles for each em
 5. Inventory Addition
 6. Search
 
-### **Stage 4: Prototyping**
-Refer to prototype files found in Phase1-Brainstorm folder
+## Stage 4: Prototyping
+Refer to the [images](https://github.com/cstegall07/techbridge-fewd-winter2022/tree/main/Phase1-Brainstorm) in the Phase1-Brainstorm Folder
+ 
+ </details>
+ 
+ <details> <summary> Phase 2: Sorting & Searching Features </summary>
+ 
+ ## Scenario
+The Rare Bookstore client has indicated that they will require the ability to view a list
+of their books. The ability to search through the list to find books based on their price,
+Author’s name, and Book’s title has been requested. They would also like to sort the list
+based on the book details that they provided during the interviews in Phase 1.
+I have devised a set of tests to validate the ability to search through visual lists
+and grids to find a value. I also have devised a test to validate sorting a visual list.
+ 
+ ### Find In Grid
+ 
+ Make the Find In Grid button operational.
+ You can view the results [here](https://cstegall07.github.io/techbridge-fewd-winter2022/projectphase2/FindInGrid.html).
+ 
+  ### Find In List
+ 
+ Make the Find In List button operational.
+ You can view the results [here](https://cstegall07.github.io/techbridge-fewd-winter2022/projectphase2/FindInList.html).
+ 
+  ### Sort Items
+ 
+ Make the Sort Items button operational.
+ You can view the results [here](https://cstegall07.github.io/techbridge-fewd-winter2022/projectphase2/SortItems.html).
+ 
+ ### Search Books
+ After completing tests, I implemented a search feature on the website. On the homepage any user can search through titles to see if they have in stock. Once a user navigates to the main inventory page, a user can search books and see all the information available such as title, ISBN, author, and publisher. View code below to see how I achieved this.
+ 
+ ```javascript
+ // search through all books 
+function searchBooks(){
+    // declare variables
+    var input, filter, title, book, txtValue
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    title = document.getElementsByClassName("title");
+    book = document.getElementsByClassName("book");
+    console.log(book);
+    console.log(title);
+    console.log(filter);
+
+    // loop through book div, hide those who don't match
+    for (i = 0; i < book.length; i++){
+        if (book){
+            txtValue = book[i].textContent || book[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1){
+                book[i].style.display="";
+            } else{
+                book[i].style.display = "none";
+            }
+        }
+    }
+}
+ ```
+ 
+ Note: The implementation for the home page was sligtly different. You can find the code on lines 26-46 in the script.js [file](https://github.com/cstegall07/techbridge-fewd-winter2022/blob/main/script.js)
+ 
+ 
+ ### Sort Books
+ 
+ To sort through books on the page, the user can click on table headers to sort the table based on the header selection.
+ 
+ ```javascript
+ // sort books in alphabetical order
+function sortBooks(n){
+    var row, book,x,y, switching, dir, shouldSwitch, switchCount = 0;;
+    book = document.getElementsByClassName("book");
+    switching = true;
+
+    dir = "asc"
+    // loop through titles until switching is done
+    while (switching){
+        switching = false;
+        row = document.getElementsByTagName("TR");
+        for (i = 1; i < (row.length -1); i++){
+            shouldSwitch = false;
+
+            x = row[i].getElementsByTagName("TD")[n];
+            y = row[i + 1].getElementsByTagName("TD")[n];
+
+            if (dir == "asc"){
+
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()){
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc"){
+                if(x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()){
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        // switch the div containing the book info 
+        if (shouldSwitch){
+            row[i].parentNode.insertBefore(row[i+1], row[i]);
+            switching = true;
+            switchCount++;
+        } else{
+            if(switchCount == 0 && dir == "asc") {
+                dirr = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+```
+ 
+ </details>
+ 
+ ## Login 
+
+
+**To Login onto the site [(click here)](https://cstegall07.github.io/techbridge-fewd-winter2022/) you must utilize these usernames and passwords**
+
+Refer to the Design Thinking process to understand the different login types.
+
+> Employee
+> 
+>  username: anicole; password: firstuser
+ 
+> Manager
+>
+> username: jwilson; password: secuser 
+
+> Owner
+> 
+> username: mlamb; password: owner
+ 
+ &nbsp; 
+ 
